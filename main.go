@@ -30,7 +30,6 @@ func main() {
 
 	routes.RouteInit(r.PathPrefix("/api/v1").Subrouter())
 
-	// Initialization "uploads" folder to public here ...
 	r.PathPrefix("/uploads").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("./uploads"))))
 
 	var AllowedHeaders = handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
